@@ -1,6 +1,7 @@
 'use strict';
 
 var config = require('../../config/config');
+var path = require('path');
 
 var _getVersion = function() {
   var pjson = require('../../package.json');
@@ -9,7 +10,8 @@ var _getVersion = function() {
 
 exports.render = function(req, res) {
   if (config.publicPath) {
-    return res.sendfile(config.publicPath + '/index.html');
+  	var publicPath = path.resolve(config.publicPath);
+    return res.sendfile(publicPath + '/index.html');
   }
 
   var version = _getVersion();

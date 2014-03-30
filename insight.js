@@ -79,13 +79,13 @@ require('./config/express')(expressApp, historicSync, peerSync);
 require('./config/routes')(expressApp);
 
 //SSL
-var privateKey  = fs.readFileSync('sslcert/server.key', 'utf8');
+//var privateKey  = fs.readFileSync('sslcert/server.key', 'utf8');
 //var certificate = fs.readFileSync('sslcert/server.crt', 'utf8');
 //var credentials = {key: privateKey, cert: certificate};
 
 // socket.io
 var server = require('http').createServer(expressApp);
-var secure_server = require('https').createServer(credentials, expressApp);
+//var secure_server = require('https').createServer(credentials, expressApp);
 var ios = require('socket.io').listen(server);
 require('./app/controllers/socket.js').init(expressApp, ios);
 

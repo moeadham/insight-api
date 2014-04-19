@@ -75,7 +75,7 @@ In case the network is changed (testnet to livenet or vice versa) levelDB databa
 
 ## Synchronization
 
-The initial synchronization process scans the blockchain from the paired bitcoind server to update addresses and balances. *insight* needs one (and only one) trusted bitcoind node to run. This node must have finished downloading the blockchain befure running *insight*.
+The initial synchronization process scans the blockchain from the paired bitcoind server to update addresses and balances. *insight* needs one (and only one) trusted bitcoind node to run. This node must have finished downloading the blockchain before running *insight*.
 
 While *insight* is synchronizing the website can be accessed (the sync process is embedded in the webserver), but there may be missing data or incorrect balances for addresses. The 'sync' status is shown on the top-right of all pages.
 
@@ -99,7 +99,8 @@ If bitcoind is shutdown, *insight* needs to be stopped and restarted once bitcoi
 ### DB storage requirement
 
 To store the blockchain and address related information, *insight* uses LevelDB. Two DBs are created: txs and blocks. By default these are stored on
-  ```<insight root>/db```
+  ```<user's home>/db```
+Please note that previous version's of Insight-API store that on `<insight's root>/db`
 
 this can be changed on config/config.js. As of February 2014, storing the livenet blockchain takes ~30GB of disk space (2GB for the testnet).
 
